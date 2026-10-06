@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: stock-trading-journal
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: VITE_API_URL
+        value: https://stock-trading-journal.onrender.com

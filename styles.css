@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root { --ink: #24171a; --paper: #fff1eb; --orange: #d93432; --blue: #b3262e; --yellow: #ffd34e; --line: #d5b4ac; --muted: #756367; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; color: var(--ink); background: var(--paper); font-family: 'Space Grotesk', 'Avenir Next', sans-serif; }
+body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .24; background-image: radial-gradient(#b5a990 0.6px, transparent 0.6px); background-size: 7px 7px; }
+body::after { content: ''; position: fixed; z-index: -1; inset: -25% -10%; pointer-events: none; opacity: .2; background: repeating-conic-gradient(from 8deg at 50% 42%, transparent 0deg 11deg, var(--orange) 11deg 12deg, transparent 12deg 22deg); }
+.shell { position: relative; max-width: 1180px; margin: 0 auto; padding: 28px 7vw 22px; }
+.topbar, footer, .panel-topline, .history-heading { display: flex; justify-content: space-between; align-items: center; }
+.topbar { border-bottom: 1px solid var(--line); padding-bottom: 19px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; }
+.brand { display: flex; gap: 10px; align-items: center; font-weight: 500; }
+.brand-mark { display: grid; place-items: center; width: 30px; height: 30px; color: var(--ink); background: var(--yellow); border: 2px solid var(--ink); transform: rotate(-6deg); font-size: 10px; font-weight: 700; letter-spacing: 0; }
+.round-label { color: var(--muted); }
+.dot { display: inline-block; width: 6px; height: 6px; margin: 0 6px; border-radius: 50%; background: var(--orange); }
+.intro { padding: 74px 0 48px; max-width: 640px; }
+.eyebrow, .panel-topline, .history-heading, footer { font: 500 10px 'DM Mono', monospace; letter-spacing: .13em; }
+.eyebrow { margin: 0 0 18px; color: var(--orange); }
+h1 { margin: 0; font-size: clamp(4.2rem, 10vw, 8.8rem); line-height: .83; letter-spacing: -.07em; font-weight: 600; }
+.intro h1 em { color: var(--blue); font-style: normal; }
+.lede { max-width: 390px; margin: 34px 0 0 8px; color: var(--muted); font-size: 15px; line-height: 1.55; }
+.game-grid { display: grid; grid-template-columns: 1.05fr .95fr; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.prompt-panel, .guess-panel { min-height: 360px; padding: 24px 30px 30px; }
+.prompt-panel { color: var(--paper); background: var(--blue); }
+.guess-panel { background: #e7ded0; border-left: 1px solid var(--ink); }
+.panel-topline { font-size: 9px; }
+.prompt-panel .panel-topline { color: #c7d1cb; }
+.guess-panel .panel-topline { color: var(--muted); }
+.event-icon { margin: 47px 0 13px; color: var(--yellow); font-size: 36px; }
+.movie-frame { position: relative; height: 205px; margin: 28px 0 20px; overflow: hidden; border: 1px solid #8eadae; background: #152f33; }
+.movie-frame::after { position: absolute; inset: 0; pointer-events: none; content: ''; background: linear-gradient(135deg, rgba(239, 107, 66, .08), rgba(10, 25, 28, .2)); }
+.movie-frame img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center top; transform: scale(1.75); filter: contrast(1.05); }
+.movie-frame::before { position: absolute; z-index: 1; inset: 12px; pointer-events: none; content: '✦  HERO FRAME  ✦'; color: var(--yellow); border: 1px solid rgba(245, 189, 56, .55); padding: 8px; font: 9px 'DM Mono', monospace; letter-spacing: .16em; }
+.prompt-panel h2 { max-width: 370px; margin: 0; font-size: clamp(2rem, 4vw, 3.3rem); line-height: .96; letter-spacing: -.05em; }
+.prompt-panel p { max-width: 355px; margin: 17px 0 0; color: #c7d1cb; font-size: 14px; line-height: 1.5; }
+.rule { width: 100%; height: 1px; margin: 29px 0 16px; background: #66868a; }
+.hint-row { display: flex; gap: 10px; align-items: center; color: var(--yellow); font-size: 12px; }
+.hint-icon { display: grid; place-items: center; width: 19px; height: 19px; border: 1px solid var(--yellow); border-radius: 50%; font: 11px 'DM Mono', monospace; }
+.guess-panel label { display: block; margin: 56px 0 13px; font-size: 14px; }
+.guess-panel input, .guess-panel select { width: 100%; padding: 15px 12px; color: var(--ink); border: 1px solid #aba294; border-radius: 0; background: transparent; font: 17px 'DM Mono', monospace; }
+.guess-panel input:focus, .guess-panel select:focus { outline: 2px solid var(--orange); outline-offset: 2px; }
+.guess-panel button { width: 100%; margin-top: 15px; padding: 15px; cursor: pointer; color: var(--paper); border: 1px solid var(--ink); background: var(--ink); font: 600 13px 'Space Grotesk', sans-serif; text-align: left; }
+.guess-panel button span { float: right; font-size: 18px; line-height: 12px; }
+.guess-panel button:hover { background: var(--orange); border-color: var(--orange); }
+.feedback { min-height: 20px; margin: 20px 0 0; color: var(--blue); font-size: 13px; }
+.secondary-button { margin-top: 4px !important; color: var(--ink) !important; background: transparent !important; }
+.secondary-button:hover { color: var(--paper) !important; }
+.history-section { padding: 28px 0 42px; }
+.history-heading { padding-bottom: 12px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.history-heading span:last-child { color: var(--orange); }
+.history-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.history-list li { display: grid; grid-template-columns: 35px 1fr auto; gap: 14px; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.history-list li::before { color: var(--orange); content: counter(list-item, decimal-leading-zero); font: 11px 'DM Mono', monospace; }
+.empty-history { color: var(--muted); }
+.empty-history::before { content: '—' !important; }
+.history-date { font-family: 'DM Mono', monospace; }
+.history-distance { color: var(--muted); font-size: 12px; }
+.history-distance.warm { color: var(--orange); }
+.history-distance.correct { color: var(--blue); font-weight: 600; }
+footer { padding-top: 19px; color: var(--muted); font-size: 9px; }
+.footer-star { color: var(--orange); font-size: 15px; vertical-align: -2px; }
+@media (max-width: 680px) {
+  .shell { padding: 20px 20px 18px; }
+  .round-label { display: none; }
+  .intro { padding: 59px 0 40px; }
+  .lede { margin-left: 0; }
+  .game-grid { display: block; }
+  .prompt-panel, .guess-panel { min-height: 0; padding: 22px 21px 26px; }
+  .guess-panel { border-top: 1px solid var(--ink); border-left: 0; }
+  .movie-frame { height: 180px; margin-top: 25px; }
+  .guess-panel label { margin-top: 40px; }
+  footer { gap: 20px; align-items: flex-start; line-height: 1.5; }
+}
